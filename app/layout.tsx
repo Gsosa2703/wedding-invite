@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: 'Alexander & Gabriela',
     images: [
       {
-        url: 'https://wedding-invite-nu-dusky.vercel.app/images/manos.jpg',
+        url: 'https://wedding-invite-nu-dusky.vercel.app/images/boda1.jpg',
         width: 1200,
         height: 630,
         alt: 'Alexander & Gabriela - Tarjeta de Invitación',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Alexander & Gabriela - Tarjeta de Invitación',
     description: 'Acompáñanos en nuestro día especial',
-    images: ['https://wedding-invite-nu-dusky.vercel.app/images/manos.jpg'],
+    images: ['https://wedding-invite-nu-dusky.vercel.app/images/boda1.jpg'],
   },
 }
 
