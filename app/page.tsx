@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { motion, Variant, VariantLabels, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 
 // Animation variants
@@ -71,6 +71,8 @@ export default function WeddingInvitation() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [showConfirmationModal, setShowConfirmationModal] = useState(false)
+  const [showWelcomePopup, setShowWelcomePopup] = useState(true)
+  const [pageReady, setPageReady] = useState(false)
   
   // Carousel state
   const [currentImageIndex, setCurrentImageIndex] = useState(1) // Start with middle image
@@ -178,23 +180,113 @@ export default function WeddingInvitation() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [hasPlayed, setHasPlayed] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!hasPlayed && audioRef.current) {
-        audioRef.current.play().catch((err: any) => {
-          console.error('Autoplay failed:', err);
-        });
-        setHasPlayed(true);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasPlayed]);
+  const handleWelcomeClick = () => {
+    // Play audio when user clicks the welcome popup
+    if (audioRef.current && !hasPlayed) {
+      audioRef.current.play().catch((err: any) => {
+        console.error('Audio play failed:', err);
+      });
+      setHasPlayed(true);
+    }
+    
+    // Close welcome popup and show main content
+    setShowWelcomePopup(false);
+    setTimeout(() => {
+      setPageReady(true);
+    }, 500); // Small delay for smooth transition
+  };
 
   return (
     <div className="min-h-screen bg-white relative">
+      {/* Welcome Popup */}
+      {showWelcomePopup && (
+        <motion.div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-pointer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={handleWelcomeClick}
+        >
+          <motion.div
+            className="text-center max-w-md mx-4"
+            initial={{ scale: 0.8, opacity: 0, y: 50 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Elegant decorative element */}
+            <motion.div 
+              className="w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+            
+            {/* Main invitation text */}
+            <motion.h1 
+              className="font-allura text-5xl md:text-6xl text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              La Boda <br /> de los Cielos
+            </motion.h1>
+            
+            <motion.p 
+              className="font-cormorant text-white text-lg md:text-xl mb-8 leading-relaxed opacity-90 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              Prepárate para vivir nuestro día especial.<br/>
+            </motion.p>
+            
+            {/* Decorative ornament */}
+            <motion.div 
+              className="flex justify-center mb-8"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center">
+                <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </div>
+            </motion.div>
+            
+            {/* Call to action */}
+            <motion.div
+              className="inline-block bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-30 rounded-lg px-8 py-4 cursor-pointer hover:bg-opacity-20 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleWelcomeClick}
+            >
+              <span className="font-cormorant text-white text-lg font-medium">
+                Abrir Invitación
+              </span>
+            </motion.div>
+            
+            <motion.div 
+              className="w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent mx-auto mt-8"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+            />
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Main Content */}
+      {pageReady && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
       {/* Hero Section */}
       <div className="relative h-screen overflow-hidden">
         <motion.div 
@@ -880,6 +972,8 @@ export default function WeddingInvitation() {
               Perfecto
             </motion.button>
           </motion.div>
+        </motion.div>
+      )}
         </motion.div>
       )}
     </div>
