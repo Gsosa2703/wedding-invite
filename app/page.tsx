@@ -639,33 +639,8 @@ export default function WeddingInvitation() {
 
           {/* Texto introductorio */}
           <p className="text-lg font-cormorant text-justify">
-            Tu presencia ya es nuestro mejor regalo. Si deseas contribuir a nuestro inicio, en efectivo lo sabremos apreciar, pero si lo prefieres, hemos habilitado varias opciones para tus regalos:
+            Tu presencia en este día tan importante ya es nuestro mejor regalo. Si deseas contribuir con nuestro inicio, en efectivo lo sabremos apreciar o si prefieres realizar una transferencia, no dudes en contactarnos. 
           </p>
-
-          {/* Métodos de pago */}
-          <div className="bg-gray-50 p-4 rounded-xl shadow-md text-left space-y-3">
-            <div>
-              <span className="block text-lg font-semibold font-cormorant text-gray-800">Pago Móvil</span>
-              <ul className="text-lg font-cormorant list-disc list-inside ml-2">
-                <li>Banco Activo</li>
-                <li>CI: 27.039.489</li>
-                <li>Tel: 0424-272-1324</li>
-              </ul>
-            </div>
-            <hr className="border-gray-300" />
-            <div>
-              <span className="block text-lg font-semibold font-cormorant text-gray-800">Facebank</span>
-              <ul className="text-lg font-cormorant list-disc list-inside ml-2">
-                <li>Beneficiario: Gabriela Mercedes Navarro Garban</li>
-                <li>Número de cuenta: 77130002125</li>
-              </ul>
-            </div>
-            <hr className="border-gray-300" />
-            <div>
-              <span className="block text-lg font-semibold font-cormorant text-gray-800">Zinli</span>
-              <p className="text-lg font-cormorant ml-2">gabriela.mnavarro99@gmail.com</p>
-            </div>
-          </div>
 
           {/* Mensaje de agradecimiento */}
           <p className="text-lg font-cormorant text-justify">
