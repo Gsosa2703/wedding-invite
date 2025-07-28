@@ -270,7 +270,7 @@ export default function WeddingInvitation() {
             className="font-cormorant text-justify"
             variants={fadeInUp}
           >
-            Toda familia tiene una historia, y la nuestra apenas comienza. Con mucha ilusión, alegría en nuestros corazones y fe en Dios, nosotros, <span className="font-semibold">Alexander y Gabriela</span>, te invitamos a acompañarnos en la celebración de nuestro matrimonio sacramental, junto en el amor de papá Dios quien nos unió hace siete años para comenzar un maravilloso noviazgo.
+            Toda familia tiene una historia, y la nuestra apenas comienza. Con mucha ilusión, alegría en nuestros corazones y fe en Dios, nosotros, <span className="font-semibold">Alexander y Gabriela</span>, te invitamos a acompañarnos en la celebración de nuestro matrimonio sacramental, guiados por el amor de papá Dios quien nos unió hace siete años para comenzar un maravilloso noviazgo.
           </motion.p>
           
           {/* Countdown Section */}
@@ -414,7 +414,7 @@ export default function WeddingInvitation() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                La Catedral de Guarenas <span className="font-semibold">8:00 pm</span>
+                Lugar: La Catedral de Guarenas <span className="font-semibold"> <br/> Hora: 8:00 PM</span>
               </motion.div>
               <motion.a
                 href="https://maps.app.goo.gl/VdTvjZotR25H8cDV9?g_st=iw"
@@ -480,8 +480,12 @@ export default function WeddingInvitation() {
                 height={48}
                 className="object-contain"
               />
-              <div className="font-script text-5xl text-white text-center">Celebracion</div>
-              <div className="text-lg text-white mb-2 font-cormorant">Club Campestre "El rodeo", Guatire</div>
+              <div className="font-script text-5xl text-white text-center">Celebración</div>
+              <div className="text-lg text-white mb-2 font-cormorant">Club Campestre El Rodeo, Guatire
+              <br/>
+              <span className='text-base'>Dará inicio después de la ceremonia.</span>
+
+              </div>
               <a
                 href="https://maps.app.goo.gl/ZzfvtDET4BRdUttB8?g_st=iw"
                 className="px-6 py-2 mt-3 bg-white text-black rounded shadow hover:bg-gray-100 transition-colors"
