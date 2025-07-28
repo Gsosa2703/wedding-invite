@@ -2,13 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { Carousel } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { motion } from 'framer-motion'
+import { motion, Variant, VariantLabels, Variants } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 
 // Animation variants
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: { 
     opacity: 1, 
@@ -35,7 +33,7 @@ const fadeInRight = {
   }
 }
 
-const scaleIn = {
+const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { 
     opacity: 1, 
@@ -604,7 +602,7 @@ export default function WeddingInvitation() {
           {/* Interactive Carousel */}
           <div className="relative">
             {/* Carousel Photo Layout */}
-            <div className="flex items-center justify-center gap-2 overflow-hidden">
+            <div className="flex items-center justify-center overflow-hidden">
               {/* Left Photo */}
               <motion.div 
                 className="relative w-32 h-48 md:w-40 md:h-60 flex-shrink-0 overflow-hidden rounded-lg shadow-md cursor-pointer"

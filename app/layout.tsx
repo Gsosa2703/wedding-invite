@@ -1,17 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter, Bodoni_Moda, Great_Vibes, Cormorant_Garamond, Allura } from 'next/font/google'
+import { Inter, Great_Vibes, Cormorant_Garamond, Allura } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from './components/SmoothScrollProvider'
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
-})
-
-const bodoni = Bodoni_Moda({
-  subsets: ['latin'],
-  variable: '--font-bodoni',
-  display: 'swap',
 })
 
 const greatVibes = Great_Vibes({
@@ -47,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${bodoni.variable} ${greatVibes.variable} ${cormorant.variable} ${allura.variable} font-cormorant`}>
+      <body className={`${inter.variable} ${greatVibes.variable} ${cormorant.variable} ${allura.variable} font-cormorant`}>
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>
