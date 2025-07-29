@@ -506,7 +506,7 @@ export default function WeddingInvitation() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                Lugar: La Catedral de Guarenas <span className="font-semibold"> <br/> Hora: 8:00 PM</span>
+                Lugar: Catedral Nuestra Señora de Copacabana, Guarenas <span className="font-semibold"> <br/> Hora: 8:00 PM</span>
               </motion.div>
               <motion.a
                 href="https://maps.app.goo.gl/VdTvjZotR25H8cDV9?g_st=iw"
@@ -759,7 +759,7 @@ export default function WeddingInvitation() {
           <div className="text-lg font-cormorant text-justify">Por favor, confírmanos tu asistencia antes del <span className="font-semibold">15 de septiembre</span>. Si para esa fecha no hemos recibido tu confirmación entenderemos que no podrás acompañarnos.</div>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6 mt-6">
             <div>
-              <label className="block text-sm font-medium mb-2 font-cormorant">Nombre y Apellido</label>
+              <label className="block text-sm font-medium mb-2 font-cormorant">Nombres y Apellidos</label>
               <input
                 type="text"
                 name="nombre"
